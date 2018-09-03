@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Work 1 JavaScript base</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+
+<div class="wrapperForm">
+<form name="converterTemp">
+        
+        <div class="inputValue">
+            <label>Сколько цифр вывести:</label>  
+            <input name="precision" value="4" maxlength="12" onKeyUp="UpdateF(0)">
+        </div>
+        
+           <div class="inputValue">
+            <label>Введите температуру в Цельсиях:</label>
+            <input name="celsius" maxlength="12" onKeyUp="UpdateF(1)" onChange = "changeFunc()">
+        </div>
+        
+        <div class="inputValue">
+            <label>Для отображиния нажми кнопку:</label>       
+            <input id="elem" type="button" value="Нажми меня"> 
+        </div>
+        
+        <div class="inputValue">
+            <label>Ваши градусы в Фаренгейтах:</label>         
+            <input name="fahrengeit" maxlength="12" onKeyUp="UpdateF(3)">
+        </div>
+        
+        <a href="../index.html"><input id="elem" type="button" value="На главную"></a>
+        <br><br><br> 
+        
+</form>
+</div>
+
+<script language="javascript">
+
+function UpdateF(n)
+    {
+        var p = eval(window.document.converterTemp.precision.value);
+        var c = window.document.converterTemp.celsius;
+        var f = window.document.converterTemp.fahrengeit;
+
+        if ( n == 0) {
+            if (c.value) c.value = eval(c.value).toPrecision(p);
+            if (f.value) f.value = eval(f.value).toPrecision(p);
+        };
+
+        if ( n == 1 ) {
+            f.value = ((9/5) * (eval(c.value)) + 32).toPrecision(p);
+        };
+}
+
+elem.onclick = function() {
+    //alert("Градусов в форенгейтах"+f);
+    //не понял почему переменную F не вывел???
+    alert("Фаренгейтов");
+    
+  };
+
+</script>
+
+</body>
+</html>
